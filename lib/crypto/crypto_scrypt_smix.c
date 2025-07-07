@@ -29,7 +29,7 @@
 #include <stdint.h>
 #include <string.h>
 
-#include "sysendian.h"
+#include "../../libcperciva/util/sysendian.h"
 
 #include "crypto_scrypt_smix.h"
 

@@ -28,6 +28,28 @@ void syslog(int priority, const char* format, ...) {
 
 #include "warnp.h"
 
+#ifdef _WIN32
+#include <stdarg.h>
+
+
+void closelog(void) {
+	// no-op
+}
+#endif
+
+#ifdef _WIN32
+#include <stdio.h>
+
+// Stub implementations, do nothing on Windows
+void flockfile(FILE* file) {
+	(void)file;  // silence unused parameter warning
+}
+
+void funlockfile(FILE* file) {
+	(void)file;
+}
+#endif
+
 static int initialized = 0;
 static char * name = NULL;
 static int use_syslog = 0;

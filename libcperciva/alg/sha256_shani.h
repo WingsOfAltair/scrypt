@@ -14,8 +14,8 @@
 void SHA256_Transform_shani(uint32_t state[static restrict 8],
     const uint8_t block[static restrict 64]);
 #else
-void SHA256_Transform_shani(uint32_t[static restrict 8],
-    const uint8_t[static restrict 64]);
+void SHA256_Transform_shani(uint32_t[8],
+    const uint8_t[64]);
 #endif
 
 #endif /* !SHA256_SHANI_H_ */

@@ -15,9 +15,9 @@
 void SHA256_Transform_sse2(uint32_t state[8],
     const uint8_t block[64], uint32_t W[64], uint32_t S[8]);
 #else
-void SHA256_Transform_sse2(uint32_t[static restrict 8],
-    const uint8_t[static restrict 64], uint32_t W[static restrict 64],
-    uint32_t S[static restrict 8]);
+void SHA256_Transform_sse2(uint32_t[8],
+    const uint8_t[64], uint32_t W[64],
+    uint32_t S[8]);
 #endif
 
 #endif /* !SHA256_SSE2_H_ */
