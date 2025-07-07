@@ -26,22 +26,29 @@
  * This file was originally written by Colin Percival as part of the Tarsnap
  * online backup system.
  */
-#include "platform.h"
+#include "../../lib-platform/platform.h"
 
 #include <sys/types.h>
+
+#ifdef _WIN32
+ // Windows does not have sys/mman.h or syslog.h
+#else
 #include <sys/mman.h>
+#include <syslog.h>
+#endif
 
 #include <errno.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include "cpusupport.h"
-#include "sha256.h"
-#include "warnp.h"
+#include "../../libcperciva/alg/sha256.h"
 
-#include "crypto_scrypt_smix.h"
-#include "crypto_scrypt_smix_sse2.h"
+#include "../../libcperciva/util/warnp.h"
+#include "../../libcperciva/cpusupport/cpusupport.h"
+
+#include "../../lib/crypto/crypto_scrypt_smix.h"
+#include "../../lib/crypto/crypto_scrypt_smix_sse2.h"
 
 #include "crypto_scrypt.h"
 
